@@ -44,9 +44,45 @@ const members = [
 	},
 	{
 		id:3,
-		src:"/image/tomisaka.jpeg",
+		src:"/image/tomisato.jpeg",
 		name:"冨里奈央",
-		kana:"とみさかなお",
+		kana:"とみさとなお",
+	},
+	{
+		id:4,
+		src:"/image/ichinose.jpeg",
+		name:"一ノ瀬美空",
+		kana:"いちのせみく",
+	},
+	{
+		id:5,
+		src:"/image/sugawara.jpeg",
+		name:"菅原咲月",
+		kana:"すがわらさつき",
+	},
+	{
+		id:6,
+		src:"/image/ogawa.jpeg",
+		name:"小川彩",
+		kana:"おがわあや",
+	},
+	{
+		id:7,
+		src:"/image/okuda.jpeg",
+		name:"奥田いろは",
+		kana:"おくだいろは",
+	},
+	{
+		id:8,
+		src:"/image/ikeda.jpeg",
+		name:"池田瑛紗",
+		kana:"いけだてれさ",
+	},
+	{
+		id:9,
+		src:"/image/kawasaki.jpeg",
+		name:"川﨑桜",
+		kana:"かわさきさくら",
 	},
 
 ];

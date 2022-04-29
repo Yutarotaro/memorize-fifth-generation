@@ -77,6 +77,8 @@ function Footer() {
         <div className="content has-text-centered">
           <p>
             著作権はわかりません
+	    <br></br>
+	  <a href="https://github.com/Yutarotaro/memorize-fifth-generation">repo</a>
           </p>
 	</div>
       </footer>

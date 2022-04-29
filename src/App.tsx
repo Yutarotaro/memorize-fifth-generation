@@ -23,44 +23,53 @@ function Header(){
 	);
 }
 
+const members = [
+	{
+		id:0,
+		src:"/image/aruno.jpeg",
+		name:"中西アルノ",
+		kana:"なかにしあるの",
+	},
+	{
+		id:1,
+		src:"/image/ioki.jpeg",
+		name:"五百城茉央",
+		kana:"いおきまお",
+	},
+	{
+		id:2,
+		src:"/image/nagi.jpeg",
+		name:"井上和",
+		kana:"いのうえなぎ",
+	},
+	{
+		id:3,
+		src:"/image/tomisaka.jpeg",
+		name:"冨里奈央",
+		kana:"とみさかなお",
+	},
+
+];
+
+
 
 function Main(){
 	return (
 		<div id='main'>
 			<div id='car'>
-				<Carousel className='mb-2'>
-				  <Carousel.Item>
-				    <img
-				      className="d-block w-20"
-				      src={`${process.env.PUBLIC_URL}/image/aruno.jpeg`}
-				      alt="中西アルノ"
-				    />
-				    <Carousel.Caption>
-				      <h3>中西アルノ</h3>
-				    </Carousel.Caption>
-				  </Carousel.Item>
-				  <Carousel.Item>
-				    <img
-				      className="d-block w-20"
-				      src={`${process.env.PUBLIC_URL}/image/ioki.jpeg`}
-				      alt="Second slide"
-				    />
-
-				    <Carousel.Caption>
-				      <h3>五百城茉央</h3>
-				    </Carousel.Caption>
-				  </Carousel.Item>
-				  <Carousel.Item>
-				    <img
-				      className="d-block w-20"
-				      src={`${process.env.PUBLIC_URL}/image/nagi.jpeg`}
-				      alt="井上和"
-				    />
-
-				    <Carousel.Caption>
-				      <h3>井上和</h3>
-				    </Carousel.Caption>
-				  </Carousel.Item>
+				<Carousel className='mb-2' interval={2000}>
+					{shuffle(members).map(member =>(
+				  		<Carousel.Item>
+						    <img
+						      className="d-block w-20"
+						      src={`${member.src}`}
+						    />
+						    <Carousel.Caption>
+						      <h3>{`${member.name}`}</h3>
+						      <h4>{`${member.kana}`}</h4>
+						    </Carousel.Caption>
+						  </Carousel.Item>
+						  ))}
 				</Carousel>
 			</div>
 
@@ -96,5 +105,12 @@ function App() {
   );
 }
 
+const shuffle = ([...array]) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 export default App;

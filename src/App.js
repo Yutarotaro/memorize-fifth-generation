@@ -86,6 +86,12 @@ const members = [
 		name:"川﨑桜",
 		kana:"かわさきさくら",
 	},
+	{
+		id:10,
+		src:"/image/okamoto.jpeg",
+		name:"岡本姫奈",
+		kana:"おかもとひな",
+	},
 
 ];
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Countdown from 'react-countdown';
-import {Carousel, Button, Navbar, Container, Nav } from 'react-bootstrap';
+import Game from './Game';
 
 
 const renderer = ({hours, minutes, seconds, completed}) => {
 	if(completed){
-		return <p> Game </p>
+		return <Game />
 	}else{
 		return (
 

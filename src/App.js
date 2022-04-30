@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import CountDown from './countDown'
 import {Carousel, Button, Navbar, Container, Nav } from 'react-bootstrap'
-import { HashRouter, BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NotFound from './template/NotFound';
 
 
 function Header(){
@@ -10,12 +11,12 @@ function Header(){
 		<header>
 			<Navbar className='mb-2' bg="light" expand="lg">
 			  <Container>
-			    <Navbar.Brand href="#home">5期生を覚えよう！</Navbar.Brand>
+			    <Navbar.Brand href="/">5期生を覚えよう！</Navbar.Brand>
 			    <Navbar.Toggle aria-controls="basic-navbar-nav" />
 			    <Navbar.Collapse id="basic-navbar-nav">
 			      <Nav className="me-auto">
 				<Nav.Link href="/">Home</Nav.Link>
-				<Nav.Link href="#link">Ranking</Nav.Link>
+				<Nav.Link href="/ranking">Ranking</Nav.Link>
 			      </Nav>
 			    </Navbar.Collapse>
 			  </Container>
@@ -94,7 +95,7 @@ function Top(){
 	return (
 		<div id='main'>
 			<div id='car'>
-				<Carousel className='mb-2' interval={2000}>
+				<Carousel className='mb-4' interval={2000}>
 					{shuffle(members).map(member =>(
 				  		<Carousel.Item>
 						    <img
@@ -103,7 +104,7 @@ function Top(){
 						      alt=""
 						    />
 						    <Carousel.Caption>
-						      <h3>{`${member.name}`}</h3>
+						      <h2>{`${member.name}`}</h2>
 						      <h4>{`${member.kana}`}</h4>
 						    </Carousel.Caption>
 						  </Carousel.Item>
@@ -133,14 +134,7 @@ function Footer() {
   );
 }
 
-function Game(){
-	return(
-		<div>
-		<CountDown />
-		</div>
 
-	);
-}
 
 function App() {
   return (
@@ -149,8 +143,9 @@ function App() {
 	
     	<BrowserRouter>
 		<Routes>
-			<Route path={`/`} element={<Top />} />
-			<Route path={`/game`} element={<Game />} />
+			<Route exact path={`/`} element={<Top />}/>
+			<Route path={`/game`} element={<CountDown />} />
+			<Route path={`/*`} element={<NotFound />} />
 		</Routes>
 	</BrowserRouter>
 

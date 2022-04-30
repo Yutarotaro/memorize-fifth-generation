@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CountDown from './countDown'
 import {Carousel, Button, Navbar, Container, Nav } from 'react-bootstrap'
+import { HashRouter, BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 function Header(){
@@ -89,7 +90,7 @@ const members = [
 
 
 
-function Main(){
+function Top(){
 	return (
 		<div id='main'>
 			<div id='car'>
@@ -99,6 +100,7 @@ function Main(){
 						    <img
 						      className="d-block w-20"
 						      src={`${member.src}`}
+						      alt=""
 						    />
 						    <Carousel.Caption>
 						      <h3>{`${member.name}`}</h3>
@@ -131,11 +133,27 @@ function Footer() {
   );
 }
 
+function Game(){
+	return(
+		<div>
+		<CountDown />
+		</div>
+
+	);
+}
+
 function App() {
   return (
     <div className="App">
-    	<Header />
-	<Main />
+	<Header />
+	
+    	<BrowserRouter>
+		<Routes>
+			<Route path={`/`} element={<Top />} />
+			<Route path={`/game`} element={<Game />} />
+		</Routes>
+	</BrowserRouter>
+
 	<Footer />
     </div>
   );

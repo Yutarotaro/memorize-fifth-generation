@@ -4,6 +4,8 @@ import CountDown from './countDown'
 import {Carousel, Button, Navbar, Container, Nav } from 'react-bootstrap'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './template/NotFound';
+import Game from './Game';
+import Start from './Start';
 
 
 function Header(){
@@ -119,7 +121,7 @@ function Top(){
 			</div>
 
 
-			<Button href="/game">Start </Button>
+			<Button href="/game">Play</Button>
 
 		</div>
 	);
@@ -141,7 +143,6 @@ function Footer() {
 }
 
 
-
 function App() {
   return (
     <div className="App">
@@ -150,7 +151,7 @@ function App() {
     	<BrowserRouter>
 		<Routes>
 			<Route exact path={`/`} element={<Top />}/>
-			<Route path={`/game`} element={<CountDown />} />
+			<Route path={`/game`} element={<Game />} />
 			<Route path={`/*`} element={<NotFound />} />
 		</Routes>
 	</BrowserRouter>

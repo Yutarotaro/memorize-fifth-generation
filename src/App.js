@@ -129,7 +129,7 @@ function Top(){
 
 function Footer() {
   return (
-    <footer className="footer fixed-bottom">
+    <footer className="footer">
         <div className="content has-text-centered">
           <p>
             著作権はわかりません

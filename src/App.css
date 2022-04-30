@@ -9,10 +9,19 @@
     width: auto;
 }
 
-.car {
-	height: 600px;
+
+
+@media (max-width:767.98px){
+	.car {
+		height: 400px;
+	}
 }
 
+@media screen{
+	.car {
+		height: 600px;
+	}
+}
 
 .App-logo {
   height: 40vmin;
@@ -48,3 +57,5 @@
     transform: rotate(360deg);
   }
 }
+
+

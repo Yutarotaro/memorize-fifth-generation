@@ -1,22 +1,22 @@
 import config from './config';
+import {Alert} from 'react-bootstrap';
 
 function display(checked){
 	var target = "";
 
-	for(var i = 0;i < config.generations;++i){
+	for(var i = 0;i < config.generations.number;++i){
 		if(checked & (1 << i)){
-			if(target != ""){
+			if(target !== ""){
 				target += ",";
 			}
 
-			target += String(i+1);
+			target += config.generations.label[i];
 		}
 	}
 
-	target += "期生タイピング";
+	target += "タイピング";
 	
-	return target;
-
+	return(<Alert> {target} </Alert>);
 }
 
 export default display;

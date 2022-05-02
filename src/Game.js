@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './Game.css';
 import CountDown from './countDown';
 import config from './config';
 import {Form, ButtonGroup, Dropdown ,Carousel, Button, Navbar, Container, Nav } from 'react-bootstrap'
@@ -24,7 +24,7 @@ function Game() {
 				inline
 				label={`${prop.label}`}
 				type="checkbox"
-				onChange={()=>{if(checked & (1 << i)){checked -= (1 << i);}else{checked += (1 << i);}console.log(checked);setChecked(checked);}}/>
+				onChange={()=>{if(checked & (1 << i)){checked -= (1 << i);}else{checked += (1 << i);}setChecked(checked);}}/>
 				:
 			      <Form.Check
 				inline

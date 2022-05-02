@@ -1,16 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './Play.css';
+import './App.css';
 import CountDown from './countDown';
+import {Stopwatch} from 'hooked-react-stopwatch';
 import {Form, Stack, ButtonGroup, Dropdown , Button, Navbar, Fade} from 'react-bootstrap'
 import config from './config'; import display from './display';
 import Countdown from 'react-countdown';
 
-
-
-
-
+//const min = 0;
+//const max = 10;
+//var index = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+const shuffle = ([...array]) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+const question_array = shuffle(config.typing_data.member.fifth);
 
 function Play(props){
+	console.log(question_array);
 	const checked = props.checked;
 	const [gameCount, setGameCount] = useState(0);
 	const [open, setOpen] = useState(true);
@@ -18,25 +27,25 @@ function Play(props){
 
 
 	function Type(props){
-		const target_name = props.name;
 		const name_array = [];
 
-		for(var i = 0;i < target_name.length;++i){
-			name_array.push(target_name[i]);
+		for(var i = 0;i < name.length;++i){
+			name_array.push(name[i]);
 		}
 
 		return(
 			<>
 			<h2>
-				{name_array.map((name,i)=>(i < correct)?name:"")}	
+				&nbsp;{name_array.map((name,i)=>(i < correct)?name:"")}	
 			</h2>
 			</>
 		);
 	}
 
 
-	const name = config.sample_data[1].alphabet;
-	const img_path = config.sample_data[1].src;
+
+	var name = question_array[gameCount].alphabet;
+	var img_path = question_array[gameCount].src;
 
 	const processKeyValue = useCallback((e)=>{
 			setCorrect((correct)=> {
@@ -47,15 +56,20 @@ function Play(props){
 			});
 	});
 
+	useEffect(() => {
+		document.addEventListener("keydown", processKeyValue, false);
+	}, [correct]);
+
+
 
 	if(correct === name.length){
 		setCorrect(0);
 		setGameCount(gameCount+1);
+		name = question_array[gameCount].alphabet;
+		img_path = question_array[gameCount].src;
 	}
 
-	useEffect(() => {
-		document.addEventListener("keydown", processKeyValue, false);
-	}, []);
+
 
 
 	const renderer = ({hours, minutes, seconds, completed}) => {
@@ -67,7 +81,7 @@ function Play(props){
 			<h3>{gameCount+1}/{config.typing_data.total}問</h3>
 			<img className="mb-2 mt-2" src={`${img_path}`} width='200px'/>
 			<br/><br/>
-			<Type className="mb-2" name={`${name}`} correct={`${correct}`}/>
+			<Type className="mb-2" />
 			<br/>
 			</div>
 		);

@@ -88,8 +88,7 @@ function App() {
 		</Routes>
 	</BrowserRouter>
 
-	<Footer />
-	<br className='bottom' />
+	<Footer/>
     </div>
   );
 }
